@@ -1,16 +1,14 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     text-align: center;
-    background-color: violet;
+    background-color: rgb(24, 76, 150);
 }
 
 h1 {
-    color:black;
+    color: black;
 }
-
-/* Input and Button Styling */
 input[type="text"] {
     padding: 10px;
     width: 40%;
@@ -36,7 +34,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Task List Styling */
 .task {
     display: flex;
     justify-content: space-between;
@@ -55,13 +52,20 @@ button:hover {
     color: green;
 }
 
-/* Responsive Design */
+footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #333;
+}
 @media (max-width: 768px) {
     input[type="text"], button {
         width: 80%;
+        margin-top: 10px;
     }
 
     .task {
         width: 90%;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
