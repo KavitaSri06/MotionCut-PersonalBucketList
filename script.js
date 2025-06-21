@@ -3,36 +3,57 @@ function addTask() {
     const taskInput = document.getElementById('taskInput');
     const taskList = document.getElementById('taskList');
 
-    // Check if the input is not empty
     if (taskInput.value.trim() !== '') {
         const taskDiv = document.createElement('div');
         taskDiv.className = 'task';
 
-        // Create a checkbox
+        // Create checkbox
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                taskText.classList.add('completed');
-            } else {
-                taskText.classList.remove('completed');
-            }
+            taskText.classList.toggle('completed', checkbox.checked);
         });
 
-        // Create the task text
+        // Create task text
         const taskText = document.createElement('span');
         taskText.textContent = taskInput.value;
 
-        // Append checkbox and text to the task
+        // Create delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌';
+        deleteBtn.style.marginLeft = '10px';
+        deleteBtn.style.backgroundColor = 'red';
+        deleteBtn.style.color = 'white';
+        deleteBtn.style.border = 'none';
+        deleteBtn.style.borderRadius = '5px';
+        deleteBtn.style.cursor = 'pointer';
+        deleteBtn.addEventListener('click', () => {
+            taskDiv.remove();
+        });
+
+        // Append elements
         taskDiv.appendChild(checkbox);
         taskDiv.appendChild(taskText);
-
-        // Append task to the task list
+        taskDiv.appendChild(deleteBtn);
         taskList.appendChild(taskDiv);
 
-        // Clear the input field
         taskInput.value = '';
     } else {
         alert('Please enter a task!');
     }
 }
+
+// Preload sample tasks
+window.onload = function () {
+    const sampleTasks = [
+       "Start a passion project and launch it",
+        "Go on a solo trip",
+        "Watch sunrise from a mountain top",
+        "Master a new language",
+        "Do a 30-day digital detox"
+    ];
+    sampleTasks.forEach(task => {
+        document.getElementById('taskInput').value = task;
+        addTask();
+    });
+};
