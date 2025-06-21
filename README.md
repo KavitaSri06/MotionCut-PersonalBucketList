@@ -27,4 +27,4 @@ Simply open the `index.html` file in any modern web browser to use the Bucket Li
 ## Author
 My Bucket List © 2025
 ## 🔍 Preview
-![Desktop View](BucketList.png)
+![Desktop View](bucketlist.png)
